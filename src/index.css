@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 40 33% 97%;
-    --foreground: 200 25% 15%;
+    --background: 0 0% 100%;
+    --foreground: 160 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 200 25% 15%;
+    --card: 150 20% 97%;
+    --card-foreground: 160 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 25% 15%;
+    --popover-foreground: 160 20% 15%;
 
-    --primary: 168 45% 35%;
-    --primary-foreground: 40 33% 97%;
+    --primary: 152 45% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 30% 92%;
-    --secondary-foreground: 200 25% 15%;
+    --secondary: 340 40% 94%;
+    --secondary-foreground: 160 20% 15%;
 
-    --muted: 40 20% 94%;
-    --muted-foreground: 200 10% 45%;
+    --muted: 150 15% 94%;
+    --muted-foreground: 160 10% 45%;
 
-    --accent: 36 80% 55%;
-    --accent-foreground: 200 25% 15%;
+    --accent: 340 55% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 168 45% 35%;
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
+    --ring: 152 45% 38%;
 
     --radius: 0.75rem;
 
@@ -46,12 +46,13 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Custom tokens */
-    --primary-light: 168 35% 92%;
-    --accent-warm: 25 70% 50%;
-    --gradient-hero: linear-gradient(135deg, hsl(168 45% 35%), hsl(168 35% 45%));
-    --gradient-warm: linear-gradient(135deg, hsl(36 80% 55%), hsl(25 70% 50%));
-    --shadow-soft: 0 4px 20px -4px hsl(168 45% 35% / 0.15);
-    --shadow-card: 0 2px 16px -2px hsl(200 25% 15% / 0.08);
+    --primary-light: 152 35% 92%;
+    --accent-light: 340 40% 94%;
+    --gradient-hero: linear-gradient(135deg, hsl(152 45% 38%), hsl(152 35% 48%));
+    --gradient-pink: linear-gradient(135deg, hsl(340 55% 60%), hsl(340 45% 70%));
+    --shadow-soft: 0 4px 20px -4px hsl(152 45% 38% / 0.15);
+    --shadow-card: 0 2px 16px -2px hsl(160 20% 15% / 0.08);
+    --shadow-pink: 0 4px 20px -4px hsl(340 55% 60% / 0.15);
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -81,12 +82,19 @@
     background-clip: text;
   }
 
+  .text-gradient-pink {
+    background: var(--gradient-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
 
-  .bg-gradient-warm {
-    background: var(--gradient-warm);
+  .bg-gradient-pink {
+    background: var(--gradient-pink);
   }
 
   .shadow-soft {
@@ -95,6 +103,10 @@
 
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+
+  .shadow-pink {
+    box-shadow: var(--shadow-pink);
   }
 }
 

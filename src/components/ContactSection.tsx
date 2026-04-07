@@ -40,7 +40,7 @@ const ContactSection = () => {
           </div>
 
           <div className="bg-card rounded-2xl p-6 shadow-card text-center">
-            <div className="w-12 h-12 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-accent-light rounded-xl flex items-center justify-center mx-auto mb-4">
               <Instagram className="text-accent" size={22} />
             </div>
             <p className="text-sm font-medium text-foreground">Redes sociales</p>
@@ -52,9 +52,9 @@ const ContactSection = () => {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-colors"
             >
-              <MessageCircle size={20} className="fill-white" />
+              <MessageCircle size={20} />
               Escríbenos por WhatsApp
             </a>
           </div>

@@ -4,7 +4,6 @@ import { Sparkles } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
 
@@ -21,8 +20,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-            Acompañamiento educativo y desarrollo creativo para adolescentes y jóvenes.
-            Un espacio donde cada mente encuentra su camino.
+            Un espacio interdisciplinario que integra psicopedagogía, educación socioemocional
+            y metodologías creativas para adolescentes, jóvenes y universitarios.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -34,7 +33,7 @@ const HeroSection = () => {
             </a>
             <a
               href="#about"
-              className="border-2 border-primary/20 text-primary px-8 py-4 rounded-xl text-base font-semibold hover:bg-primary/5 transition-colors text-center"
+              className="border-2 border-accent/30 text-accent px-8 py-4 rounded-xl text-base font-semibold hover:bg-accent/5 transition-colors text-center"
             >
               Conocer más
             </a>
@@ -49,7 +48,7 @@ const HeroSection = () => {
             height={1080}
             className="rounded-2xl shadow-card object-cover w-full"
           />
-          <div className="absolute -bottom-4 -left-4 bg-card rounded-xl shadow-card p-4 animate-float">
+          <div className="absolute -bottom-4 -left-4 bg-background rounded-xl shadow-card p-4 animate-float">
             <p className="text-sm font-semibold text-foreground">+200 estudiantes</p>
             <p className="text-xs text-muted-foreground">acompañados</p>
           </div>
