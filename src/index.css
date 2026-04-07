@@ -1,41 +1,103 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * =====================================================
+ * ARCHIVO: index.css
+ * =====================================================
+ * ESTILOS GLOBALES de toda la aplicación.
+ * Aquí se definen los colores, tipografías, animaciones
+ * y utilidades que usa todo el sitio web.
+ *
+ * ESTRUCTURA:
+ * 1. Importaciones de Tailwind CSS (framework de estilos).
+ * 2. Importación de fuentes de Google Fonts.
+ * 3. Variables CSS (tokens de diseño): colores, sombras, gradientes.
+ * 4. Estilos base del cuerpo y encabezados.
+ * 5. Clases utilitarias personalizadas.
+ * 6. Animaciones (keyframes).
+ *
+ * PARA CAMBIAR COLORES:
+ * Modifica las variables en :root (formato HSL: matiz saturación% luminosidad%).
+ * Ejemplo: --primary: 152 45% 38% → Verde. Cambia los valores para otro color.
+ *
+ * PARA CAMBIAR TIPOGRAFÍAS:
+ * 1. Busca otra fuente en https://fonts.google.com
+ * 2. Cambia la URL de importación de Google Fonts.
+ * 3. Actualiza --font-heading y --font-body con los nuevos nombres.
+ * =====================================================
+ */
 
+/* Importación de las 3 capas de Tailwind CSS */
+@tailwind base;       /* Estilos base/reset del navegador */
+@tailwind components; /* Componentes reutilizables */
+@tailwind utilities;  /* Clases utilitarias (text-lg, bg-red, etc.) */
+
+/**
+ * IMPORTACIÓN DE FUENTES
+ * - Playfair Display: Fuente elegante para títulos (serif).
+ * - Inter: Fuente limpia para texto general (sans-serif).
+ * Para cambiar: Busca otra fuente en https://fonts.google.com
+ * y reemplaza esta URL.
+ */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
+  /**
+   * VARIABLES DE DISEÑO (Design Tokens)
+   * Todas usan formato HSL (Hue Saturation Lightness) SIN la función hsl().
+   * Tailwind las envuelve automáticamente con hsl().
+   *
+   * COLORES PRINCIPALES:
+   * --primary: Verde (152°) → Color principal de la marca.
+   * --accent: Rosa (340°) → Color secundario/acento.
+   * --background: Blanco → Fondo general.
+   * --foreground: Verde oscuro → Color del texto principal.
+   *
+   * PARA CAMBIAR LA PALETA:
+   * - Matiz (primer número): 0=rojo, 60=amarillo, 120=verde, 240=azul, 340=rosa
+   * - Saturación (segundo): 0%=gris, 100%=color puro
+   * - Luminosidad (tercero): 0%=negro, 50%=normal, 100%=blanco
+   */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 160 20% 15%;
+    /* === COLORES BASE === */
+    --background: 0 0% 100%;           /* Blanco puro - Fondo general */
+    --foreground: 160 20% 15%;         /* Verde muy oscuro - Color del texto */
 
-    --card: 150 20% 97%;
-    --card-foreground: 160 20% 15%;
+    /* === TARJETAS === */
+    --card: 150 20% 97%;               /* Blanco verdoso muy claro - Fondo de tarjetas */
+    --card-foreground: 160 20% 15%;    /* Igual que foreground */
 
+    /* === POPOVERS (menús emergentes) === */
     --popover: 0 0% 100%;
     --popover-foreground: 160 20% 15%;
 
-    --primary: 152 45% 38%;
-    --primary-foreground: 0 0% 100%;
+    /* === COLOR PRINCIPAL: VERDE === */
+    --primary: 152 45% 38%;            /* Verde medio - Botones, iconos, enlaces */
+    --primary-foreground: 0 0% 100%;   /* Blanco - Texto sobre fondo verde */
 
-    --secondary: 340 40% 94%;
+    /* === COLOR SECUNDARIO === */
+    --secondary: 340 40% 94%;          /* Rosa muy claro */
     --secondary-foreground: 160 20% 15%;
 
-    --muted: 150 15% 94%;
-    --muted-foreground: 160 10% 45%;
+    /* === ELEMENTOS APAGADOS (textos secundarios) === */
+    --muted: 150 15% 94%;              /* Gris verdoso claro */
+    --muted-foreground: 160 10% 45%;   /* Gris medio para textos secundarios */
 
-    --accent: 340 55% 60%;
-    --accent-foreground: 0 0% 100%;
+    /* === COLOR ACENTO: ROSA === */
+    --accent: 340 55% 60%;             /* Rosa medio - Elementos de acento */
+    --accent-foreground: 0 0% 100%;    /* Blanco - Texto sobre fondo rosa */
 
-    --destructive: 0 84.2% 60.2%;
+    /* === COLOR DE ERROR === */
+    --destructive: 0 84.2% 60.2%;      /* Rojo - Para errores y alertas */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 15% 88%;
-    --input: 150 15% 88%;
-    --ring: 152 45% 38%;
+    /* === BORDES E INPUTS === */
+    --border: 150 15% 88%;             /* Gris verdoso claro para bordes */
+    --input: 150 15% 88%;              /* Igual que border para campos de formulario */
+    --ring: 152 45% 38%;               /* Verde - Anillo de foco (cuando se selecciona un campo) */
 
-    --radius: 0.75rem;
+    /* === RADIO DE BORDES (esquinas redondeadas) === */
+    --radius: 0.75rem;                 /* 12px - Redondeo de esquinas */
 
+    /* === SIDEBAR (barra lateral - para futuro uso) === */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -45,36 +107,49 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom tokens */
-    --primary-light: 152 35% 92%;
-    --accent-light: 340 40% 94%;
-    --gradient-hero: linear-gradient(135deg, hsl(152 45% 38%), hsl(152 35% 48%));
-    --gradient-pink: linear-gradient(135deg, hsl(340 55% 60%), hsl(340 45% 70%));
-    --shadow-soft: 0 4px 20px -4px hsl(152 45% 38% / 0.15);
-    --shadow-card: 0 2px 16px -2px hsl(160 20% 15% / 0.08);
-    --shadow-pink: 0 4px 20px -4px hsl(340 55% 60% / 0.15);
+    /* === TOKENS PERSONALIZADOS === */
+    --primary-light: 152 35% 92%;      /* Verde muy claro - Fondos suaves de iconos */
+    --accent-light: 340 40% 94%;       /* Rosa muy claro - Fondos suaves de iconos */
 
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* Gradientes: Transiciones suaves entre dos colores */
+    --gradient-hero: linear-gradient(135deg, hsl(152 45% 38%), hsl(152 35% 48%));  /* Verde a verde claro */
+    --gradient-pink: linear-gradient(135deg, hsl(340 55% 60%), hsl(340 45% 70%));  /* Rosa a rosa claro */
+
+    /* Sombras: Profundidad visual de los elementos */
+    --shadow-soft: 0 4px 20px -4px hsl(152 45% 38% / 0.15);   /* Sombra verde suave */
+    --shadow-card: 0 2px 16px -2px hsl(160 20% 15% / 0.08);   /* Sombra gris para tarjetas */
+    --shadow-pink: 0 4px 20px -4px hsl(340 55% 60% / 0.15);   /* Sombra rosa suave */
+
+    /* Tipografías */
+    --font-heading: 'Playfair Display', serif;  /* Fuente de títulos (elegante, con serifas) */
+    --font-body: 'Inter', sans-serif;            /* Fuente de texto (limpia, sin serifas) */
   }
 }
 
 @layer base {
+  /* Todos los bordes usan el color definido en --border */
   * {
     @apply border-border;
   }
 
+  /* El cuerpo usa la fuente de texto y los colores base */
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
   }
 
+  /* Todos los títulos (h1 a h6) usan la fuente de encabezados */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
 }
 
+/**
+ * CLASES UTILITARIAS PERSONALIZADAS
+ * Se pueden usar como cualquier clase de Tailwind: className="text-gradient-primary"
+ */
 @layer utilities {
+  /* Texto con degradado verde (el texto se "pinta" con el gradiente) */
   .text-gradient-primary {
     background: var(--gradient-hero);
     -webkit-background-clip: text;
@@ -82,6 +157,7 @@
     background-clip: text;
   }
 
+  /* Texto con degradado rosa */
   .text-gradient-pink {
     background: var(--gradient-pink);
     -webkit-background-clip: text;
@@ -89,47 +165,61 @@
     background-clip: text;
   }
 
+  /* Fondo con degradado verde (para botones, banners, etc.) */
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
 
+  /* Fondo con degradado rosa */
   .bg-gradient-pink {
     background: var(--gradient-pink);
   }
 
+  /* Sombra suave verde (para hover de tarjetas) */
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
 
+  /* Sombra de tarjeta (sutil, para estado normal) */
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
 
+  /* Sombra rosa */
   .shadow-pink {
     box-shadow: var(--shadow-pink);
   }
 }
 
+/**
+ * ANIMACIONES (Keyframes)
+ * Definen cómo se mueve/transforma un elemento en el tiempo.
+ */
+
+/* fade-up: El elemento aparece subiendo desde abajo con un desvanecimiento */
 @keyframes fade-up {
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 0;                    /* Empieza invisible */
+    transform: translateY(24px);   /* Empieza 24px más abajo */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;                    /* Termina visible */
+    transform: translateY(0);      /* Termina en su posición normal */
   }
 }
 
+/* float: El elemento "flota" subiendo y bajando suavemente (loop infinito) */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { transform: translateY(0); }    /* Posición normal */
+  50% { transform: translateY(-8px); }       /* Sube 8px en el punto medio */
 }
 
+/* Clase para aplicar la animación fade-up */
 .animate-fade-up {
   animation: fade-up 0.7s ease-out forwards;
 }
 
+/* Clase para aplicar la animación de flotar (se repite infinitamente) */
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
