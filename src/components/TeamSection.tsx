@@ -1,7 +1,33 @@
-import carolinaImg from "@/assets/carolina.jpg";
-import vanessaImg from "@/assets/vanessa.jpg";
-import { GraduationCap, Briefcase } from "lucide-react";
+/**
+ * =====================================================
+ * COMPONENTE: TeamSection.tsx
+ * =====================================================
+ * Sección "NUESTRO EQUIPO" que presenta a las co-fundadoras.
+ *
+ * ¿Qué muestra?
+ * Para cada miembro del equipo:
+ * - Fotografía profesional.
+ * - Nombre y cargo.
+ * - Biografía breve.
+ * - Lista de formación académica (con icono de gorro de graduación 🎓).
+ * - Áreas de trabajo (etiquetas/badges con fondo verde claro).
+ *
+ * PARA MODIFICAR:
+ * - Datos del equipo: Edita el arreglo "team" de abajo.
+ * - Fotos: Reemplaza los archivos en src/assets/ (carolina.jpg, vanessa.jpg).
+ * - Agregar un nuevo miembro: Agrega un nuevo objeto al arreglo "team".
+ * =====================================================
+ */
 
+import carolinaImg from "@/assets/carolina.jpg";   // Foto de Carolina
+import vanessaImg from "@/assets/vanessa.jpg";      // Foto de Vanessa
+import { GraduationCap, Briefcase } from "lucide-react"; // Iconos: gorro 🎓 y maletín 💼
+
+/**
+ * DATOS DEL EQUIPO
+ * Cada objeto representa a un miembro del equipo.
+ * Modifica estos datos para actualizar la información mostrada en la web.
+ */
 const team = [
   {
     name: "Carolina Castañeda Pizarro",
@@ -44,6 +70,8 @@ const TeamSection = () => {
   return (
     <section id="team" className="py-24">
       <div className="container mx-auto px-4">
+
+        {/* TÍTULO DE LA SECCIÓN */}
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
             Nuestro Equipo
@@ -53,25 +81,38 @@ const TeamSection = () => {
           </p>
         </div>
 
+        {/**
+         * TARJETAS DEL EQUIPO
+         * Se muestran en 2 columnas en pantallas grandes.
+         * Cada tarjeta tiene foto + información.
+         * hover:-translate-y-2: La tarjeta se eleva suavemente al pasar el cursor.
+         */}
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {team.map((member) => (
             <div key={member.name} className="bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-soft hover:-translate-y-2 transition-all duration-500">
+
+              {/* Layout horizontal: foto a la izquierda, info a la derecha */}
               <div className="flex flex-col sm:flex-row">
+
+                {/* FOTOGRAFÍA del miembro */}
                 <div className="sm:w-48 shrink-0">
                   <img
                     src={member.image}
                     alt={member.name}
                     width={512}
                     height={512}
-                    loading="lazy"
+                    loading="lazy"   // Carga diferida: la imagen se carga solo cuando es visible
                     className="w-full h-48 sm:h-full object-cover hover:-translate-y-1 hover:scale-105 transition-transform duration-500"
                   />
                 </div>
+
+                {/* INFORMACIÓN del miembro */}
                 <div className="p-6 flex-1">
                   <h3 className="font-heading text-xl font-bold text-foreground mb-1">{member.name}</h3>
                   <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
 
+                  {/* FORMACIÓN ACADÉMICA: Lista con viñetas verdes */}
                   <div className="mb-3">
                     <div className="flex items-center gap-2 mb-2">
                       <GraduationCap size={16} className="text-primary" />
@@ -87,6 +128,7 @@ const TeamSection = () => {
                     </ul>
                   </div>
 
+                  {/* ÁREAS DE TRABAJO: Etiquetas/badges con fondo verde claro */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <Briefcase size={16} className="text-accent" />
