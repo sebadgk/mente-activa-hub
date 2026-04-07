@@ -46,7 +46,7 @@ const HeroSection = () => {
             alt="Estudiantes aprendiendo juntos en Mente Activa"
             width={1920}
             height={1080}
-            className="rounded-2xl shadow-card object-cover w-full"
+            className="rounded-2xl shadow-card object-cover w-full hover:-translate-y-2 hover:shadow-soft transition-all duration-500"
           />
           <div className="absolute -bottom-4 -left-4 bg-background rounded-xl shadow-card p-4 animate-float">
             <p className="text-sm font-semibold text-foreground">+200 estudiantes</p>

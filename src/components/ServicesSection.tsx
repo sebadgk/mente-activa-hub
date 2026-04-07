@@ -75,7 +75,7 @@ const ServicesSection = () => {
                   width={768}
                   height={512}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 group-hover:-translate-y-1 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
