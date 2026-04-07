@@ -55,7 +55,7 @@ const TeamSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {team.map((member) => (
-            <div key={member.name} className="bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-soft transition-shadow">
+            <div key={member.name} className="bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-soft hover:-translate-y-2 transition-all duration-500">
               <div className="flex flex-col sm:flex-row">
                 <div className="sm:w-48 shrink-0">
                   <img
