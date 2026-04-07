@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Quiénes somos", href: "#about" },
+  { label: "Sobre nosotros", href: "#about" },
+  { label: "Equipo", href: "#team" },
   { label: "Servicios", href: "#services" },
+  { label: "Testimonios", href: "#testimonials" },
   { label: "Agendar", href: "#booking" },
   { label: "Contacto", href: "#contact" },
 ];
@@ -18,8 +20,7 @@ const Navbar = () => {
           Mente Activa
         </a>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -40,19 +41,17 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground"
+          className="lg:hidden text-foreground"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4">
+        <div className="lg:hidden bg-background border-b border-border px-4 pb-4">
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.href}>
