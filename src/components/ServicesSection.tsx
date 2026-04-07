@@ -66,7 +66,7 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group bg-background rounded-2xl shadow-card hover:shadow-soft overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              className="group bg-background rounded-2xl shadow-card hover:shadow-soft overflow-hidden transition-all duration-500 hover:-translate-y-2"
             >
               <div className="h-44 overflow-hidden">
                 <img
