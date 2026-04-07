@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, MessageCircle } from "lucide-react";
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from "./WhatsAppButton";
 
 const ContactSection = () => {
   return (
